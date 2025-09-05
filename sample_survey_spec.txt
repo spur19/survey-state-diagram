@@ -1,0 +1,563 @@
+# USER EXPERIENCE SURVEY
+# Product Feedback and Satisfaction Survey
+# Version: 1.0
+# Date: September 2025
+
+==============================================
+SURVEY STRUCTURE AND FLOW
+==============================================
+
+## SECTION 1: SCREENING QUESTIONS
+==============================================
+
+QUESTION 1: AGE_VERIFICATION
+Type: Single Choice (Radio)
+Text: "What is your age?"
+Options:
+  A) Under 18
+  B) 18-24
+  C) 25-34
+  D) 35-44
+  E) 45-54
+  F) 55-64
+  G) 65 or older
+
+Data Validation:
+  - Required: Yes
+  - Must select exactly one option
+
+Branching Logic:
+  - If A (Under 18) → TERMINATE survey with message "Thank you for your interest. This survey is for adults 18+."
+  - If B-G → Continue to Q2
+
+---
+
+QUESTION 2: PRODUCT_USAGE
+Type: Single Choice (Radio)
+Text: "Have you used our product in the past 6 months?"
+Options:
+  A) Yes, regularly (weekly or more)
+  B) Yes, occasionally (monthly)
+  C) Yes, rarely (less than monthly)
+  D) No, but I have used it before
+  E) No, I have never used it
+
+Data Validation:
+  - Required: Yes
+  - Must select exactly one option
+
+Branching Logic:
+  - If A, B, or C → Continue to Q3 (Current Users Path)
+  - If D → Skip to Q15 (Past Users Path)
+  - If E → Skip to Q20 (Non-Users Path)
+
+==============================================
+## SECTION 2: CURRENT USERS PATH (Q3-Q14)
+==============================================
+
+QUESTION 3: USAGE_FREQUENCY
+Type: Single Choice (Radio)
+Text: "How often do you typically use our product?"
+Options:
+  A) Daily
+  B) Several times per week
+  C) Once per week
+  D) 2-3 times per month
+  E) Once per month
+  F) Less than once per month
+
+Data Validation:
+  - Required: Yes
+  - Must select exactly one option
+
+Branching Logic:
+  - All options → Continue to Q4
+
+---
+
+QUESTION 4: PRIMARY_USE_CASE
+Type: Multiple Choice (Checkbox)
+Text: "What do you primarily use our product for? (Select all that apply)"
+Options:
+  A) Work/Professional tasks
+  B) Personal projects
+  C) Learning/Education
+  D) Entertainment
+  E) Social interaction
+  F) Other
+
+Data Validation:
+  - Required: Yes
+  - Must select at least 1 option
+  - Maximum 6 options allowed
+
+Branching Logic:
+  - If "Other" selected → Show Q4a (text input for specification)
+  - All paths → Continue to Q5
+
+---
+
+QUESTION 4a: OTHER_USE_CASE (Conditional)
+Type: Open Text
+Text: "Please specify your other use case:"
+Visibility: Only if "Other" selected in Q4
+
+Data Validation:
+  - Required: Yes (when visible)
+  - Minimum length: 5 characters
+  - Maximum length: 200 characters
+  - No special characters: <, >, &, "
+
+Branching Logic:
+  - Continue to Q5
+
+---
+
+QUESTION 5: SATISFACTION_RATING
+Type: Rating Scale (1-10)
+Text: "How satisfied are you with our product overall?"
+Scale: 1 (Very Unsatisfied) to 10 (Very Satisfied)
+
+Data Validation:
+  - Required: Yes
+  - Must be integer between 1-10
+  - No decimal values allowed
+
+Branching Logic:
+  - If rating ≤ 6 → Continue to Q6 (Dissatisfaction path)
+  - If rating ≥ 7 → Skip to Q7 (Satisfaction path)
+
+---
+
+QUESTION 6: DISSATISFACTION_REASONS (Conditional)
+Type: Multiple Choice (Checkbox)
+Text: "What are the main reasons for your dissatisfaction? (Select all that apply)"
+Visibility: Only if Q5 rating ≤ 6
+Options:
+  A) Too expensive
+  B) Difficult to use
+  C) Poor performance/speed
+  D) Lacks important features
+  E) Poor customer support
+  F) Technical issues/bugs
+  G) Other
+
+Data Validation:
+  - Required: Yes (when visible)
+  - Must select at least 1 option
+  - Maximum 7 options allowed
+
+Branching Logic:
+  - If "Other" selected → Show Q6a (text input)
+  - Continue to Q7
+
+---
+
+QUESTION 6a: OTHER_DISSATISFACTION (Conditional)
+Type: Open Text
+Text: "Please specify other reasons for dissatisfaction:"
+Visibility: Only if "Other" selected in Q6
+
+Data Validation:
+  - Required: Yes (when visible)
+  - Minimum length: 10 characters
+  - Maximum length: 500 characters
+
+---
+
+QUESTION 7: FEATURE_IMPORTANCE_LOOP
+Type: Rating Scale Matrix (Loop)
+Text: "How important is speed and performance to you?"
+Scale: 1 (Not Important) to 10 (Very Important)
+
+  
+Data Validation:
+  - Required: Yes
+  - Must be integer between 1-5
+  - All features must be rated to proceed
+
+
+Skip Logic:
+  - If rating <= 4 (Low engagement users): Skip Q8-Q11, go directly to Q12
+  - If rating >= 5 and <= 8 (Normal engagement users): Follow standard flow Q8→Q9→Q10→Q11→Q12
+  - If rating >= 8 (High engagement users): Skip Q8-Q9, go directly to Q10
+
+---
+
+QUESTION 8: RECOMMENDATION_LIKELIHOOD
+Type: Rating Scale (0-10)
+Text: "How likely are you to recommend our product to a friend or colleague?"
+Scale: 0 (Not at all likely) to 10 (Extremely likely)
+
+Data Validation:
+  - Required: Yes
+  - Must be integer between 0-10
+
+Branching Logic:
+  - If rating 0-6 → Set NPS_Category = "Detractor"
+  - If rating 7-8 → Set NPS_Category = "Passive"  
+  - If rating 9-10 → Set NPS_Category = "Promoter"
+  - All paths → Continue to Q9
+
+---
+
+QUESTION 9: RECOMMENDATION_REASON
+Type: Open Text
+Text: "What is the main reason for your recommendation score?"
+
+Data Validation:
+  - Required: Yes
+  - Minimum length: 10 characters
+  - Maximum length: 1000 characters
+  - Profanity filter: Enabled
+
+---
+
+QUESTION 10: COMPETITOR_USAGE
+Type: Single Choice (Radio)
+Text: "Do you currently use any competing products?"
+Options:
+  A) Yes, as my primary solution
+  B) Yes, alongside your product
+  C) Yes, but rarely
+  D) No, only your product
+  E) No, I don't use any similar products
+
+Data Validation:
+  - Required: Yes
+
+Branching Logic:
+  - If A, B, or C → Continue to Q11 (Competitor analysis)
+  - If D or E → Skip to Q12
+
+---
+
+QUESTION 11: COMPETITOR_COMPARISON (Conditional)
+Type: Multiple Choice (Checkbox)
+Text: "Which competing products do you use? (Select all that apply)"
+Visibility: Only if Q10 = A, B, or C
+Options:
+  A) Competitor Product A
+  B) Competitor Product B
+  C) Competitor Product C
+  D) Competitor Product D
+  E) Other competitor
+
+Data Validation:
+  - Required: Yes (when visible)
+  - Must select at least 1 option
+
+Branching Logic:
+  - If "Other competitor" selected → Show Q11a
+  - Continue to Q12
+
+---
+
+QUESTION 11a: OTHER_COMPETITOR (Conditional)
+Type: Open Text
+Text: "Please name the other competing product(s):"
+Visibility: Only if "Other competitor" selected in Q11
+
+Data Validation:
+  - Required: Yes (when visible)
+  - Minimum length: 2 characters
+  - Maximum length: 100 characters
+
+---
+
+QUESTION 12: FEATURE_REQUESTS
+Type: Open Text (Optional)
+Text: "What new features would you most like to see added to our product?"
+
+Data Validation:
+  - Required: No
+  - Maximum length: 1000 characters
+  - If filled, minimum length: 10 characters
+
+---
+
+QUESTION 13: CONTACT_PREFERENCE
+Type: Single Choice (Radio)
+Text: "How would you prefer to receive updates about product improvements?"
+Options:
+  A) Email newsletter
+  B) In-app notifications
+  C) SMS updates
+  D) Social media
+  E) I don't want to receive updates
+
+Data Validation:
+  - Required: Yes
+
+Branching Logic:
+  - If A → Continue to Q14 (Email collection)
+  - If B, C, D, E → Skip to Q25 (Demographics)
+
+---
+
+QUESTION 14: EMAIL_COLLECTION (Conditional)
+Type: Text Input
+Text: "Please provide your email address for updates:"
+Visibility: Only if Q13 = A
+
+Data Validation:
+  - Required: Yes (when visible)
+  - Must be valid email format (contains @ and valid domain)
+  - Maximum length: 100 characters
+  - No spaces allowed
+
+Branching Logic:
+  - Continue to Q25 (Demographics section)
+
+==============================================
+## SECTION 3: PAST USERS PATH (Q15-Q19)
+==============================================
+
+QUESTION 15: DISCONTINUATION_TIME
+Type: Single Choice (Radio)
+Text: "When did you stop using our product?"
+Options:
+  A) Within the last month
+  B) 1-3 months ago
+  C) 3-6 months ago
+  D) 6-12 months ago
+  E) More than a year ago
+
+Data Validation:
+  - Required: Yes
+
+---
+
+QUESTION 16: DISCONTINUATION_REASON
+Type: Multiple Choice (Checkbox)
+Text: "Why did you stop using our product? (Select all that apply)"
+Options:
+  A) Found a better alternative
+  B) Too expensive
+  C) Too difficult to use
+  D) Didn't meet my needs
+  E) Technical problems
+  F) No longer needed this type of product
+  G) Other
+
+Data Validation:
+  - Required: Yes
+  - Must select at least 1 option
+
+Branching Logic:
+  - If "Other" selected → Show Q16a
+  - Continue to Q17
+
+---
+
+QUESTION 16a: OTHER_DISCONTINUATION (Conditional)
+Type: Open Text
+Text: "Please specify other reasons for stopping:"
+
+Data Validation:
+  - Required: Yes (when visible)
+  - Minimum length: 10 characters
+  - Maximum length: 500 characters
+
+---
+
+QUESTION 17: RETURN_LIKELIHOOD
+Type: Rating Scale (1-5)
+Text: "How likely are you to use our product again in the future?"
+Scale: 1 (Very Unlikely) to 5 (Very Likely)
+
+Data Validation:
+  - Required: Yes
+  - Must be integer between 1-5
+
+---
+
+QUESTION 18: RETURN_CONDITIONS
+Type: Open Text
+Text: "What changes would make you consider using our product again?"
+
+Data Validation:
+  - Required: No
+  - Maximum length: 1000 characters
+  - If filled, minimum length: 10 characters
+
+---
+
+QUESTION 19: CURRENT_SOLUTION
+Type: Open Text
+Text: "What solution do you currently use instead? (Optional)"
+
+Data Validation:
+  - Required: No
+  - Maximum length: 200 characters
+
+Branching Logic:
+  - Continue to Q25 (Demographics)
+
+==============================================
+## SECTION 4: NON-USERS PATH (Q20-Q24)
+==============================================
+
+QUESTION 20: AWARENESS_SOURCE
+Type: Single Choice (Radio)
+Text: "How did you first hear about our product?"
+Options:
+  A) Online advertising
+  B) Social media
+  C) Friend or colleague recommendation
+  D) Search engine results
+  E) Industry publication/review
+  F) Conference or event
+  G) Other
+
+Data Validation:
+  - Required: Yes
+
+Branching Logic:
+  - If "Other" → Show Q20a
+  - Continue to Q21
+
+---
+
+QUESTION 20a: OTHER_AWARENESS (Conditional)
+Type: Open Text
+Text: "Please specify how you heard about us:"
+
+Data Validation:
+  - Required: Yes (when visible)
+  - Minimum length: 5 characters
+  - Maximum length: 200 characters
+
+---
+
+QUESTION 21: NON_USAGE_REASON
+Type: Multiple Choice (Checkbox)
+Text: "What prevents you from using our product? (Select all that apply)"
+Options:
+  A) Price is too high
+  B) Don't need this type of product
+  C) Happy with current solution
+  D) Looks too complicated
+  E) Concerned about security/privacy
+  F) Bad reviews or reputation
+  G) Other
+
+Data Validation:
+  - Required: Yes
+  - Must select at least 1 option
+
+---
+
+QUESTION 22: TRIAL_INTEREST
+Type: Single Choice (Radio)
+Text: "Would you be interested in trying our product if we offered a free trial?"
+Options:
+  A) Yes, definitely
+  B) Yes, maybe
+  C) No, probably not
+  D) No, definitely not
+
+Data Validation:
+  - Required: Yes
+
+Branching Logic:
+  - If A or B → Continue to Q23
+  - If C or D → Skip to Q24
+
+---
+
+QUESTION 23: TRIAL_DURATION (Conditional)
+Type: Single Choice (Radio)
+Text: "What trial duration would be most appealing to you?"
+Visibility: Only if Q22 = A or B
+Options:
+  A) 7 days
+  B) 14 days
+  C) 30 days
+  D) 60 days
+
+Data Validation:
+  - Required: Yes (when visible)
+
+---
+
+QUESTION 24: CURRENT_SOLUTION_NON_USER
+Type: Open Text
+Text: "What solution do you currently use for similar needs? (Optional)"
+
+Data Validation:
+  - Required: No
+  - Maximum length: 200 characters
+
+Branching Logic:
+  - Continue to Q25 (Demographics)
+
+==============================================
+## SECTION 5: DEMOGRAPHICS (Q25-Q28)
+==============================================
+
+QUESTION 25: COMPANY_SIZE
+Type: Single Choice (Radio)
+Text: "What is the size of your organization?"
+Options:
+  A) Just me (1 person)
+  B) Small (2-10 employees)
+  C) Medium (11-50 employees)
+  D) Large (51-200 employees)
+  E) Enterprise (201+ employees)
+  F) Not applicable
+
+Data Validation:
+  - Required: Yes
+
+---
+
+QUESTION 26: INDUSTRY
+Type: Single Choice (Dropdown)
+Text: "Which industry best describes your work?"
+Options:
+  A) Technology
+  B) Healthcare
+  C) Finance
+  D) Education
+  E) Manufacturing
+  F) Retail
+  G) Consulting
+  H) Government
+  I) Non-profit
+  J) Other
+
+Data Validation:
+  - Required: Yes
+
+---
+
+QUESTION 27: ROLE_LEVEL
+Type: Single Choice (Radio)
+Text: "What best describes your role level?"
+Options:
+  A) Individual contributor
+  B) Team lead
+  C) Manager
+  D) Director
+  E) VP or above
+  F) Owner/Founder
+  G) Student
+  H) Other
+
+Data Validation:
+  - Required: Yes
+
+---
+
+QUESTION 28: ADDITIONAL_FEEDBACK
+Type: Open Text (Optional)
+Text: "Is there anything else you'd like to share about your experience or suggestions for improvement?"
+
+Data Validation:
+  - Required: No
+  - Maximum length: 2000 characters
+
+==============================================
+END OF SURVEY
+==============================================
