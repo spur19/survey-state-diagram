@@ -5,25 +5,97 @@ from typing import Optional
 
 from langchain_openai import ChatOpenAI
 
-from .models import StateList
+from models import StateList
+from generate_mermaid_diagram import generate_mermaid_with_langchain
 
 
 
-SYSTEM_PROMPT = 
-"""
+SYSTEM_PROMPT = """
 You are a precise assistant that extracts a survey state diagram from a
 survey design document. Return states strictly conforming to the schema.
 
-Rules:
-- depth is 0 for the starting question.
+
+# Rules:
+- depth is 0 for the starting question and null for terminal states.
+- You should create only one terminal state. For terminal states, depth and next question should be null. id should be "endingid".
 - For non-start states, depth = previous state's depth + 1.
 - prev_question is null for the start state; otherwise, set to the previous question.
-- prev_question_answer is the answer chosen in the previous question that led here (null for start).
+- current_question_answer is the options chosen in the current question (null for start). If multiple options lead to the same next question, collect them in a list and use that as the current question answer.
 - current_question is the question at this state.
-- next_question is the next question if known from the document; otherwise null (for terminal states or when unspecified).
+- next_question is the precise next question from the document. Use "endingid" if the next step is to end the survey.
 - Only include states that are explicitly supported by the document; do not invent content.
-- If branching occurs, create one state per distinct branch.
 - Assign an 8-letter UUID per question.
+- It is possible to arrive at the same question from different previous questions. In such cases, you should keep the id the same and update the rest of the fields.
+
+For example, if the document says:
+- Question 1: "Are you a student?"
+
+Options:
+- Yes
+- No
+- Maybe
+
+Branching Logic:
+  - If No → TERMINATE survey with message "Thank you for your interest. This survey is for students only"
+  - If Yes or Maybe → Continue to Q2
+
+- Question 2: "What are you studying?"
+Options:
+- Math or Science
+- Arts
+
+
+- Question 3: "What is your gender?"
+Options:
+- Male
+- Female
+- Other
+
+The states are:
+
+{
+  "question_states": [
+    {
+      "id": "1a2b3c4d",
+      "depth": 0,
+      "prev_question": null,
+      "current_question_answer": "No",
+      "current_question": "Are you a student?",
+      "next_question": "endingid"
+    },
+    {
+      "id": "1a2b3c4d",
+      "depth": 0,
+      "prev_question": null,
+      "current_question_answer": "Yes, Maybe",
+      "current_question": "Are you a student?",
+      "next_question": "3a4b5c6d"
+    },
+    {
+      "id": "endingid",
+      "depth": null,
+      "prev_question": "1a2b3c4d",
+      "current_question_answer": null,
+      "current_question": "END_SURVEY",
+      "next_question": null
+    },
+    {
+      "id": "3a4b5c6d",
+      "depth": 1,
+      "prev_question": "1a2b3c4d",
+      "current_question_answer": "Math, Science, Arts",
+      "current_question": "What are you studying?",
+      "next_question": "4a5b6c7d"
+    },
+    {
+      "id": "4a5b6c7d",
+      "depth": 2,
+      "prev_question": "3a4b5c6d",
+      "current_question_answer": "Male, Female, Other",
+      "current_question": "What is your gender?",
+      "next_question": "endingid"
+    },
+}
 
 
 You will be given a survey design document and you will need to return a dictionary that maps question ids to a list of all possible survey states for that question, with an 8-letter UUID per question.
@@ -87,10 +159,16 @@ def main() -> None:
     outdir.mkdir(parents=True, exist_ok=True)
     base = input_path.stem
     json_path = outdir / f"{base}.json"
-    diagram_path = outdir / f"{base}.mmd"
 
     json_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    diagram_path.write_text(mermaid, encoding="utf-8")
+
+    # Generate Mermaid diagram from the states JSON
+    generate_mermaid_with_langchain(
+        question_states_json=json.dumps(data, ensure_ascii=False, indent=2),
+        output_dir=str(outdir),
+        model=model,
+        filename=f"{base}.mmd",
+    )
 
 
 
