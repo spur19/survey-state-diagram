@@ -1,0 +1,31 @@
+flowchart TD
+    Start([Survey Start]):::start --> Q1{{What is your age?}}:::question
+    Q1 -->|A| endingid
+    Q1 -->|B, C, D, E, F, G| Q2{{Have you used our product in the past 6 months?}}:::question
+    Q2 -->|A, B, C| Q3{{How often do you typically use our product?}}:::question
+    Q2 -->|D| Q4{{When did you stop using our product?}}:::question
+    Q3 -->|A, B, C, D, E| Q5{{What do you primarily use our product for?}}:::question
+    Q4 -->|null| Q6{{Why did you stop using our product?}}:::question
+    Q5 -->|null| Q7{{How satisfied are you with our product overall?}}:::question
+    Q6 -->|null| Q8{{How likely are you to use our product again in the future?}}:::question
+    Q7 -->|A, B, C, D, E, F, G| Q9{{What are the main reasons for your dissatisfaction?}}:::question
+    Q8 -->|null| Q10{{What changes would make you consider using our product again?}}:::question
+    Q9 -->|null| Q11{{How important is speed and performance to you?}}:::question
+    Q10 -->|null| Q12{{What solution do you currently use for similar needs?}}:::question
+    Q11 -->|null| Q13{{How likely are you to recommend our product to a friend or colleague?}}:::question
+    Q12 -->|null| endingid
+    Q13 -->|null| Q14{{What is the main reason for your recommendation score?}}:::question
+    Q14 -->|A, B, C, D, E| Q15{{Do you currently use any competing products?}}:::question
+    Q15 -->|A, B, C| Q16{{Which competing products do you use?}}:::question
+    Q16 -->|null| Q17{{What new features would you most like to see added to our product?}}:::question
+    Q17 -->|A, B, C, D, E| Q18{{How would you prefer to receive updates about product improvements?}}:::question
+    Q18 -->|null| Q19{{Please provide your email address for updates:}}:::question
+    Q19 -->|null| Q20{{What is the size of your organization?}}:::question
+    Q20 -->|null| Q21{{Which industry best describes your work?}}:::question
+    Q21 -->|null| Q22{{What best describes your role level?}}:::question
+    Q22 -->|null| Q23{{Is there anything else you'd like to share about your experience or suggestions for improvement?}}:::question
+    Q23 -->|null| endingid
+    Q4 -->|E| Q24{{How did you first hear about our product?}}:::question
+    Q24 -->|null| Q25{{What prevents you from using our product? }}:::question
+    Q25 -->|null| Q26{{Would you be interested in trying our product if we offered a free trial?}}:::question
+    Q26 -->|null| endingid

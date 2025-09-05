@@ -1,0 +1,396 @@
+{
+  "question_states": [
+    {
+      "id": "1a2b3c4d",
+      "depth": 0,
+      "prev_question": null,
+      "current_question_answer": "A",
+      "current_question": "What is your age?",
+      "next_question": "endingid"
+    },
+    {
+      "id": "1a2b3c4d",
+      "depth": 0,
+      "prev_question": null,
+      "current_question_answer": "B, C, D, E, F, G",
+      "current_question": "What is your age?",
+      "next_question": "2b3c4d5e"
+    },
+    {
+      "id": "endingid",
+      "depth": 1,
+      "prev_question": "1a2b3c4d",
+      "current_question_answer": null,
+      "current_question": "END_SURVEY",
+      "next_question": null
+    },
+    {
+      "id": "2b3c4d5e",
+      "depth": 1,
+      "prev_question": "1a2b3c4d",
+      "current_question_answer": "A, B, C",
+      "current_question": "Have you used our product in the past 6 months?",
+      "next_question": "3c4d5e6f"
+    },
+    {
+      "id": "2b3c4d5e",
+      "depth": 1,
+      "prev_question": "1a2b3c4d",
+      "current_question_answer": "D",
+      "current_question": "Have you used our product in the past 6 months?",
+      "next_question": "15d6e7f8"
+    },
+    {
+      "id": "2b3c4d5e",
+      "depth": 1,
+      "prev_question": "1a2b3c4d",
+      "current_question_answer": "E",
+      "current_question": "Have you used our product in the past 6 months?",
+      "next_question": "20e7f8g9"
+    },
+    {
+      "id": "3c4d5e6f",
+      "depth": 2,
+      "prev_question": "2b3c4d5e",
+      "current_question_answer": "A, B, C, D, E, F",
+      "current_question": "How often do you typically use our product?",
+      "next_question": "4d5e6f7g"
+    },
+    {
+      "id": "4d5e6f7g",
+      "depth": 3,
+      "prev_question": "3c4d5e6f",
+      "current_question_answer": "A, B, C, D, E, F",
+      "current_question": "What do you primarily use our product for? (Select all that apply)",
+      "next_question": "5e6f7g8h"
+    },
+    {
+      "id": "4d5e6f7g",
+      "depth": 3,
+      "prev_question": "3c4d5e6f",
+      "current_question_answer": "Other",
+      "current_question": "What do you primarily use our product for? (Select all that apply)",
+      "next_question": "4a6f7g8h"
+    },
+    {
+      "id": "4a6f7g8h",
+      "depth": 4,
+      "prev_question": "4d5e6f7g",
+      "current_question_answer": null,
+      "current_question": "Please specify your other use case:",
+      "next_question": "5e6f7g8h"
+    },
+    {
+      "id": "5e6f7g8h",
+      "depth": 4,
+      "prev_question": "4d5e6f7g",
+      "current_question_answer": null,
+      "current_question": "How satisfied are you with our product overall?",
+      "next_question": "6f7g8h9i"
+    },
+    {
+      "id": "5e6f7g8h",
+      "depth": 4,
+      "prev_question": "4a6f7g8h",
+      "current_question_answer": null,
+      "current_question": "How satisfied are you with our product overall?",
+      "next_question": "6f7g8h9i"
+    },
+    {
+      "id": "6f7g8h9i",
+      "depth": 5,
+      "prev_question": "5e6f7g8h",
+      "current_question_answer": "≤ 6",
+      "current_question": "How satisfied are you with our product overall?",
+      "next_question": "6a7g8h9j"
+    },
+    {
+      "id": "6f7g8h9i",
+      "depth": 5,
+      "prev_question": "5e6f7g8h",
+      "current_question_answer": "≥ 7",
+      "current_question": "How satisfied are you with our product overall?",
+      "next_question": "7g8h9j0"
+    },
+    {
+      "id": "6f7g8h9i",
+      "depth": 5,
+      "prev_question": "5e6f7g8h",
+      "current_question_answer": "≤ 6",
+      "current_question": "How satisfied are you with our product overall?",
+      "next_question": "6a7g8h9j"
+    },
+    {
+      "id": "6a7g8h9j",
+      "depth": 6,
+      "prev_question": "6f7g8h9i",
+      "current_question_answer": "A, B, C, D, E, F, G",
+      "current_question": "What are the main reasons for your dissatisfaction? (Select all that apply)",
+      "next_question": "7g8h9j0"
+    },
+    {
+      "id": "6a7g8h9j",
+      "depth": 6,
+      "prev_question": "6f7g8h9i",
+      "current_question_answer": "Other",
+      "current_question": "What are the main reasons for your dissatisfaction? (Select all that apply)",
+      "next_question": "6a7a8h9j"
+    },
+    {
+      "id": "6a7a8h9j",
+      "depth": 7,
+      "prev_question": "6a7g8h9j",
+      "current_question_answer": null,
+      "current_question": "Please specify other reasons for dissatisfaction:",
+      "next_question": "7g8h9j0"
+    },
+    {
+      "id": "7g8h9j0",
+      "depth": 7,
+      "prev_question": "6f7g8h9i",
+      "current_question_answer": null,
+      "current_question": "How important is speed and performance to you?",
+      "next_question": "8h9j0k1"
+    },
+    {
+      "id": "8h9j0k1",
+      "depth": 8,
+      "prev_question": "7g8h9j0",
+      "current_question_answer": null,
+      "current_question": "How likely are you to recommend our product to a friend or colleague?",
+      "next_question": "9j0k1l2"
+    },
+    {
+      "id": "9j0k1l2",
+      "depth": 9,
+      "prev_question": "8h9j0k1",
+      "current_question_answer": null,
+      "current_question": "What is the main reason for your recommendation score?",
+      "next_question": "10k1l2m3"
+    },
+    {
+      "id": "10k1l2m3",
+      "depth": 10,
+      "prev_question": "9j0k1l2",
+      "current_question_answer": "A, B, C, D, E",
+      "current_question": "Do you currently use any competing products?",
+      "next_question": "11k1l2m3"
+    },
+    {
+      "id": "10k1l2m3",
+      "depth": 10,
+      "prev_question": "9j0k1l2",
+      "current_question_answer": "D, E",
+      "current_question": "Do you currently use any competing products?",
+      "next_question": "12k1l2m3"
+    },
+    {
+      "id": "11k1l2m3",
+      "depth": 11,
+      "prev_question": "10k1l2m3",
+      "current_question_answer": "A, B, C",
+      "current_question": "Do you currently use any competing products?",
+      "next_question": "11a1l2m3"
+    },
+    {
+      "id": "11k1l2m3",
+      "depth": 11,
+      "prev_question": "10k1l2m3",
+      "current_question_answer": "Other competitor",
+      "current_question": "Which competing products do you use? (Select all that apply)",
+      "next_question": "11a1l2m3"
+    },
+    {
+      "id": "11a1l2m3",
+      "depth": 12,
+      "prev_question": "11k1l2m3",
+      "current_question_answer": null,
+      "current_question": "Please name the other competing product(s):",
+      "next_question": "12k1l2m3"
+    },
+    {
+      "id": "12k1l2m3",
+      "depth": 12,
+      "prev_question": "11k1l2m3",
+      "current_question_answer": null,
+      "current_question": "What new features would you most like to see added to our product?",
+      "next_question": "13l2m3n4"
+    },
+    {
+      "id": "13l2m3n4",
+      "depth": 13,
+      "prev_question": "12k1l2m3",
+      "current_question_answer": null,
+      "current_question": "How would you prefer to receive updates about product improvements?",
+      "next_question": "14l2m3n4"
+    },
+    {
+      "id": "14l2m3n4",
+      "depth": 14,
+      "prev_question": "13l2m3n4",
+      "current_question_answer": "A",
+      "current_question": "How would you prefer to receive updates about product improvements?",
+      "next_question": "14a1m2n3"
+    },
+    {
+      "id": "14l2m3n4",
+      "depth": 14,
+      "prev_question": "13l2m3n4",
+      "current_question_answer": "B, C, D, E",
+      "current_question": "How would you prefer to receive updates about product improvements?",
+      "next_question": "25m2n3o4"
+    },
+    {
+      "id": "14a1m2n3",
+      "depth": 15,
+      "prev_question": "14l2m3n4",
+      "current_question_answer": null,
+      "current_question": "Please provide your email address for updates:",
+      "next_question": "25m2n3o4"
+    },
+    {
+      "id": "15d6e7f8",
+      "depth": 2,
+      "prev_question": "2b3c4d5e",
+      "current_question_answer": null,
+      "current_question": "When did you stop using our product?",
+      "next_question": "16e7f8g9"
+    },
+    {
+      "id": "16e7f8g9",
+      "depth": 3,
+      "prev_question": "15d6e7f8",
+      "current_question_answer": "A, B, C, D, E",
+      "current_question": "Why did you stop using our product? (Select all that apply)",
+      "next_question": "17f8g9h0"
+    },
+    {
+      "id": "16e7f8g9",
+      "depth": 3,
+      "prev_question": "15d6e7f8",
+      "current_question_answer": "Other",
+      "current_question": "Why did you stop using our product? (Select all that apply)",
+      "next_question": "16a7f8g9"
+    },
+    {
+      "id": "16a7f8g9",
+      "depth": 4,
+      "prev_question": "16e7f8g9",
+      "current_question_answer": null,
+      "current_question": "Please specify other reasons for stopping:",
+      "next_question": "17f8g9h0"
+    },
+    {
+      "id": "17f8g9h0",
+      "depth": 4,
+      "prev_question": "16e7f8g9",
+      "current_question_answer": null,
+      "current_question": "How likely are you to use our product again in the future?",
+      "next_question": "18g9h0i1"
+    },
+    {
+      "id": "18g9h0i1",
+      "depth": 5,
+      "prev_question": "17f8g9h0",
+      "current_question_answer": null,
+      "current_question": "What changes would make you consider using our product again?",
+      "next_question": "25m2n3o4"
+    },
+    {
+      "id": "20e7f8g9",
+      "depth": 2,
+      "prev_question": "2b3c4d5e",
+      "current_question_answer": null,
+      "current_question": "How did you first hear about our product?",
+      "next_question": "21f8g9h0"
+    },
+    {
+      "id": "20e7f8g9",
+      "depth": 2,
+      "prev_question": "2b3c4d5e",
+      "current_question_answer": "Other",
+      "current_question": "How did you first hear about our product?",
+      "next_question": "20a7f8g9"
+    },
+    {
+      "id": "20a7f8g9",
+      "depth": 3,
+      "prev_question": "20e7f8g9",
+      "current_question_answer": null,
+      "current_question": "Please specify how you heard about us:",
+      "next_question": "21f8g9h0"
+    },
+    {
+      "id": "21f8g9h0",
+      "depth": 3,
+      "prev_question": "20e7f8g9",
+      "current_question_answer": "A, B, C, D, E, F, G",
+      "current_question": "What prevents you from using our product? (Select all that apply)",
+      "next_question": "22g9h0i1"
+    },
+    {
+      "id": "22g9h0i1",
+      "depth": 4,
+      "prev_question": "21f8g9h0",
+      "current_question_answer": "A, B, C, D, E, F, G",
+      "current_question": "Would you be interested in trying our product if we offered a free trial?",
+      "next_question": "23h0i1j2"
+    },
+    {
+      "id": "22g9h0i1",
+      "depth": 4,
+      "prev_question": "21f8g9h0",
+      "current_question_answer": "C, D",
+      "current_question": "Would you be interested in trying our product if we offered a free trial?",
+      "next_question": "24h0i1j2"
+    },
+    {
+      "id": "23h0i1j2",
+      "depth": 5,
+      "prev_question": "22g9h0i1",
+      "current_question_answer": "A, B",
+      "current_question": "What trial duration would be most appealing to you?",
+      "next_question": "25h0i1j2"
+    },
+    {
+      "id": "24h0i1j2",
+      "depth": 5,
+      "prev_question": "22g9h0i1",
+      "current_question_answer": null,
+      "current_question": "What solution do you currently use for similar needs? (Optional)",
+      "next_question": "25h0i1j2"
+    },
+    {
+      "id": "25h0i1j2",
+      "depth": 6,
+      "prev_question": "23h0i1j2",
+      "current_question_answer": null,
+      "current_question": "What is the size of your organization?",
+      "next_question": "26i1j2k3"
+    },
+    {
+      "id": "26i1j2k3",
+      "depth": 7,
+      "prev_question": "25h0i1j2",
+      "current_question_answer": null,
+      "current_question": "Which industry best describes your work?",
+      "next_question": "27j2k3l4"
+    },
+    {
+      "id": "27j2k3l4",
+      "depth": 8,
+      "prev_question": "26i1j2k3",
+      "current_question_answer": null,
+      "current_question": "What best describes your role level?",
+      "next_question": "28k3l4m5"
+    },
+    {
+      "id": "28k3l4m5",
+      "depth": 9,
+      "prev_question": "27j2k3l4",
+      "current_question_answer": null,
+      "current_question": "Is there anything else you'd like to share about your experience or suggestions for improvement?",
+      "next_question": "endingid"
+    }
+  ]
+}
