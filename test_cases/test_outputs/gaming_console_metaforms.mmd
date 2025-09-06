@@ -1,0 +1,43 @@
+flowchart TD
+Start([Survey Start])
+End[END_SURVEY]
+
+Q1{{How old are you?}}
+Q2{{Do you identify yourself as…?}}
+Q3{{Which of the following gaming consoles do you currently own or have regular access to at home?}}
+Q4{{Which gaming console do you consider your main, or primary console, or the one you use the most?}}
+Q5{{How long have you been using your main gaming console …}}
+Q6{{When was the last time you purchased a game digital or physical for yourself? Would that be within …?}}
+Q7{{Have you done the following activities with insert main console from Q4 in the past 12 months?}}
+Q8{{In the past 12 months, have you had any reasons or prompts that led you to start looking into other gaming consoles?}}
+Q9{{For each console, please select how far along you got in the purchase process in the past 12 months.}}
+Q10{{Have you experienced any of the below activities while you were shopping for gaming consoles in the past 12 months?}}
+Q11{{Have you experienced any of the below activities while you were setting up the gaming console after purchase in the past 12 months?}}
+Q12{{Thinking about your overall experience with Selected Console, how much do you agree that Selected Console delivers an exceptional experience?}}
+Q13{{Thinking about your overall experience with Selected Console, how likely are you to recommend Selected Console to a friend, family member, or colleague?}}
+Q14{{Thinking about your experience shopping/researching a gaming console, how much do you agree that Selected Console …}}
+Q15{{Thinking only about your experience purchasing and setting up your console, how much do you agree that Selected Console …}}
+Q16{{Thinking about your experience using your gaming console, how much do you agree that Selected CONSOLE …}}
+Q17{{Thinking about your experience engaging with your gaming console beyond just playing games, how much do you agree that Selected Console …}}
+
+Start --> Q1
+Q1 --|Less than 18, More than 49|--> End
+Q1 --|18 to 49|--> Q2
+Q2 --|Female, Male, Prefer not to answer|--> Q3
+Q3 --|None of the above|--> End
+Q3 --|PlayStation 5, Xbox Series X/S, Nintendo Switch|--> Q4
+Q4 --|PlayStation 5, Xbox Series X/S, Nintendo Switch|--> Q5
+Q5 --|Less than 1 year, 1 to 2 years, More than 2 years|--> Q6
+Q6 --|the past 3 months, the past 12 months, longer than 12 months ago, I have never purchased a game|--> Q7
+Q7 --|Purchased or downloaded new games; Played games online with friends or other players; Watched game trailers or gameplay videos; Used voice chat features; None of the above|--> Q8
+Q8 --|Yes|--> Q9
+Q8 --|No|--> Q12
+Q9 --|Did not research or consider; Considered but did not decide to purchase; Purchased but haven’t fully set it up (by console)|--> Q10
+Q10 --|Experience trigger; Researched and compared (narrow down); None of the above|--> Q11
+Q11 --|Unboxed and physically set up; Created a user account on the console’s online service; None of the above|--> Q12
+Q12 --|1–10 (10-point scale)|--> Q13
+Q13 --|1–10 (10-point scale)|--> Q14
+Q14 --|1–10 (10-point scale)|--> Q15
+Q15 --|1–10 (10-point scale)|--> Q16
+Q16 --|1–10 (10-point scale)|--> Q17
+Q17 --|1–10 (10-point scale)|--> End

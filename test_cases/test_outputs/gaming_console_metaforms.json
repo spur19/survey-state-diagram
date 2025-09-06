@@ -1,0 +1,220 @@
+{
+  "question_states": [
+    {
+      "id": "aqplmnsu",
+      "depth": 0,
+      "prev_question": null,
+      "current_question_answer": "Less than 18, More than 49",
+      "current_question": "How old are you?",
+      "next_question": "endingid"
+    },
+    {
+      "id": "aqplmnsu",
+      "depth": 0,
+      "prev_question": null,
+      "current_question_answer": "18 to 49",
+      "current_question": "How old are you?",
+      "next_question": "bgtrvcdn"
+    },
+    {
+      "id": "endingid",
+      "depth": 12,
+      "prev_question": "aqplmnsu",
+      "current_question_answer": null,
+      "current_question": "END_SURVEY",
+      "next_question": null
+    },
+    {
+      "id": "bgtrvcdn",
+      "depth": 1,
+      "prev_question": "aqplmnsu",
+      "current_question_answer": "Female, Male, Prefer not to answer",
+      "current_question": "Do you identify yourself as…?",
+      "next_question": "chjkwqaz"
+    },
+    {
+      "id": "chjkwqaz",
+      "depth": 2,
+      "prev_question": "bgtrvcdn",
+      "current_question_answer": "None of the above",
+      "current_question": "Which of the following gaming consoles do you currently own or have regular access to at home?",
+      "next_question": "endingid"
+    },
+    {
+      "id": "chjkwqaz",
+      "depth": 2,
+      "prev_question": "bgtrvcdn",
+      "current_question_answer": "PlayStation 5, Xbox Series X/S, Nintendo Switch",
+      "current_question": "Which of the following gaming consoles do you currently own or have regular access to at home?",
+      "next_question": "dplmxnvo"
+    },
+    {
+      "id": "dplmxnvo",
+      "depth": 3,
+      "prev_question": "chjkwqaz",
+      "current_question_answer": "PlayStation 5, Xbox Series X/S, Nintendo Switch",
+      "current_question": "Which gaming console do you consider your main, or primary console, or the one you use the most?",
+      "next_question": "euytpsla"
+    },
+    {
+      "id": "euytpsla",
+      "depth": 4,
+      "prev_question": "dplmxnvo",
+      "current_question_answer": "Less than 1 year, 1 to 2 years, More than 2 years",
+      "current_question": "How long have you been using your main gaming console …",
+      "next_question": "fpowiqzm"
+    },
+    {
+      "id": "fpowiqzm",
+      "depth": 5,
+      "prev_question": "euytpsla",
+      "current_question_answer": "the past 3 months, the past 12 months, longer than 12 months ago, I have never purchased a game",
+      "current_question": "When was the last time you purchased a game (digital or physical) for yourself? Would that be within …?",
+      "next_question": "gnhbvcxz"
+    },
+    {
+      "id": "gnhbvcxz",
+      "depth": 6,
+      "prev_question": "fpowiqzm",
+      "current_question_answer": "Purchased or downloaded new games; Played games online with friends or other players; Watched game trailers or gameplay videos; Used voice chat features; None of the above",
+      "current_question": "Have you done the following activities with [insert main console from Q4] in the past 12 months?",
+      "next_question": "htrenmqi"
+    },
+    {
+      "id": "htrenmqi",
+      "depth": 7,
+      "prev_question": "gnhbvcxz",
+      "current_question_answer": "Yes",
+      "current_question": "In the past 12 months, have you had any reasons or prompts that led you to start looking into other gaming consoles?",
+      "next_question": "ivbgtcya"
+    },
+    {
+      "id": "htrenmqi",
+      "depth": 7,
+      "prev_question": "gnhbvcxz",
+      "current_question_answer": "No",
+      "current_question": "In the past 12 months, have you had any reasons or prompts that led you to start looking into other gaming consoles?",
+      "next_question": "lqazwsxe"
+    },
+    {
+      "id": "ivbgtcya",
+      "depth": 8,
+      "prev_question": "htrenmqi",
+      "current_question_answer": "Did not research or consider; Considered but did not decide to purchase; Purchased but haven’t fully set it up (by console)",
+      "current_question": "For each console, please select how far along you got in the purchase process in the past 12 months.",
+      "next_question": "jkslqwer"
+    },
+    {
+      "id": "jkslqwer",
+      "depth": 9,
+      "prev_question": "ivbgtcya",
+      "current_question_answer": "Experience trigger; Researched and compared (narrow down); None of the above",
+      "current_question": "Have you experienced any of the below activities while you were shopping for gaming console(s) in the past 12 months?",
+      "next_question": "kdmfpoiu"
+    },
+    {
+      "id": "kdmfpoiu",
+      "depth": 10,
+      "prev_question": "jkslqwer",
+      "current_question_answer": "Unboxed and physically set up; Created a user account on the console’s online service; None of the above",
+      "current_question": "Have you experienced any of the below activities while you were setting up the gaming console after purchase in the past 12 months?",
+      "next_question": "lqazwsxe"
+    },
+    {
+      "id": "lqazwsxe",
+      "depth": 11,
+      "prev_question": "kdmfpoiu",
+      "current_question_answer": "1–10 (10-point scale)",
+      "current_question": "Thinking about your overall experience with [Selected Console], how much do you agree that [Selected Console] delivers an exceptional experience?",
+      "next_question": "mwsxedcr"
+    },
+    {
+      "id": "lqazwsxe",
+      "depth": 8,
+      "prev_question": "htrenmqi",
+      "current_question_answer": "1–10 (10-point scale)",
+      "current_question": "Thinking about your overall experience with [Selected Console], how much do you agree that [Selected Console] delivers an exceptional experience?",
+      "next_question": "mwsxedcr"
+    },
+    {
+      "id": "mwsxedcr",
+      "depth": 12,
+      "prev_question": "lqazwsxe",
+      "current_question_answer": "1–10 (10-point scale)",
+      "current_question": "Thinking about your overall experience with [Selected Console], how likely are you to recommend [Selected Console] to a friend, family member, or colleague?",
+      "next_question": "nbgtyhuj"
+    },
+    {
+      "id": "mwsxedcr",
+      "depth": 9,
+      "prev_question": "lqazwsxe",
+      "current_question_answer": "1–10 (10-point scale)",
+      "current_question": "Thinking about your overall experience with [Selected Console], how likely are you to recommend [Selected Console] to a friend, family member, or colleague?",
+      "next_question": "nbgtyhuj"
+    },
+    {
+      "id": "nbgtyhuj",
+      "depth": 13,
+      "prev_question": "mwsxedcr",
+      "current_question_answer": "1–10 (10-point scale)",
+      "current_question": "Thinking about your experience shopping/researching a gaming console, how much do you agree that [Selected Console] …",
+      "next_question": "oplkjhgf"
+    },
+    {
+      "id": "nbgtyhuj",
+      "depth": 10,
+      "prev_question": "mwsxedcr",
+      "current_question_answer": "1–10 (10-point scale)",
+      "current_question": "Thinking about your experience shopping/researching a gaming console, how much do you agree that [Selected Console] …",
+      "next_question": "oplkjhgf"
+    },
+    {
+      "id": "oplkjhgf",
+      "depth": 14,
+      "prev_question": "nbgtyhuj",
+      "current_question_answer": "1–10 (10-point scale)",
+      "current_question": "Thinking only about your experience purchasing and setting up your console, how much do you agree that [Selected Console] …",
+      "next_question": "pqowieur"
+    },
+    {
+      "id": "oplkjhgf",
+      "depth": 11,
+      "prev_question": "nbgtyhuj",
+      "current_question_answer": "1–10 (10-point scale)",
+      "current_question": "Thinking only about your experience purchasing and setting up your console, how much do you agree that [Selected Console] …",
+      "next_question": "pqowieur"
+    },
+    {
+      "id": "pqowieur",
+      "depth": 15,
+      "prev_question": "oplkjhgf",
+      "current_question_answer": "1–10 (10-point scale)",
+      "current_question": "Thinking about your experience using your gaming console, how much do you agree that [Selected CONSOLE] …",
+      "next_question": "qrtyuiop"
+    },
+    {
+      "id": "pqowieur",
+      "depth": 12,
+      "prev_question": "oplkjhgf",
+      "current_question_answer": "1–10 (10-point scale)",
+      "current_question": "Thinking about your experience using your gaming console, how much do you agree that [Selected CONSOLE] …",
+      "next_question": "qrtyuiop"
+    },
+    {
+      "id": "qrtyuiop",
+      "depth": 16,
+      "prev_question": "pqowieur",
+      "current_question_answer": "1–10 (10-point scale)",
+      "current_question": "Thinking about your experience engaging with your gaming console beyond just playing games, how much do you agree that [Selected Console] …",
+      "next_question": "endingid"
+    },
+    {
+      "id": "qrtyuiop",
+      "depth": 13,
+      "prev_question": "pqowieur",
+      "current_question_answer": "1–10 (10-point scale)",
+      "current_question": "Thinking about your experience engaging with your gaming console beyond just playing games, how much do you agree that [Selected Console] …",
+      "next_question": "endingid"
+    }
+  ]
+}

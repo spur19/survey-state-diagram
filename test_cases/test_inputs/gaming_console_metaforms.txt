@@ -1,0 +1,320 @@
+# Gaming Console Study
+
+---
+
+#### SAMPLE STRUCTURE
+
+To qualify for this study, all respondents must:
+
+* Study Sample Size: **n=1000** (Further reduced for simplicity)  
+* Not working in conflicting industry  
+* Responsible (or shared) for entertainment/gaming decisions  
+* Have gone through at least 1 out of the Shop, Buy, Play, and Engage moments in the past 12 months  
+* Quotas will be applied for Age | Gender  
+  * Age (Simplified Age Bands)  
+    * 18-34 – 60%  
+    * 35-49 – 40%  
+  * Gender  
+    * Male – 60%  
+    * Female – 40%  
+* Own or have access to at least one gaming console.
+
+#### 
+
+#### Programming Notes
+
+***Notes in BLUE are programming notes and should not be visible to the respondent.***  
+***For any multi-select questions, please add “Select all that apply” at the end of the question wording (italicized) and if there is a “None” option, please make exclusive.***  
+***Always anchor “Other” and “None” options at the end of the list.***  
+***Use block tags for each sections***  
+***Create variables and hidden questions with descriptive labels and add explanation comments before each punching.***  
+***Follow Best Practices like using pipe, res define tags, quota punches at correct place, temporary hidden questions for complex termination punching.***
+
+***MC \= Multiple Choice***  
+***SS \= Single Select***  
+***R \= Randomize***  
+***DNR \= Do not randomize***
+
+#### 
+
+#### TEXT FOR SURVEY LANDING PAGE
+
+Thanks for agreeing to take this survey. We have a few quick questions to see if you qualify.
+
+#### SCREENER
+
+* 1\. How old are you? ***SS***  
+  ***INSERT DROP DOWN \[Less than 18, 18, 19, …, 49, More than 49\]***  
+  ***Terminate if age is less than 18 or more than 49***  
+  ***HIDDEN YOUTH: 18 \- 23***  
+  ***1.1. 18-34 \- 60%***  
+  ***1.2. 35-49 \- 40%***  
+    
+* 2\. Do you identify yourself as…? ***SS***  
+  * 2.1. Female  
+  * 2.2. Male  
+  * 2.3. Prefer not to answer
+
+#### GAMING HABITS
+
+* 3\. Which of the following gaming consoles do you currently own or have regular access to at home? ***(Select all that apply)*** ***R***  
+  * 3.1. PlayStation 5  
+  * 3.2. Xbox Series X/S  
+  * 3.3. Nintendo Switch  
+  * 3.4. None of the above ***TERMINATE***
+
+
+* 4\. ***Ask if own console – coded 3.1 to 3.3 \-*** Which gaming console do you consider your main, or primary console, or the one you use the most? ***SS***  
+  ***AUTOCODE IF ONLY ONE SELECTED AT Q3***  
+  ***insert RESPONSES FROM Q3 (excluding 3.4), SAME ORDER***
+
+
+| No | MAIN CONSOLE | CONSOLE BRAND |
+| :---- | :---- | :---- |
+| 1 | PlayStation 5 | PlayStation |
+| 2 | Xbox Series X/S | Xbox |
+| 3 | Nintendo Switch | Nintendo |
+
+
+  ***For a console user, the main console selected in Q4 automatically becomes the selected console***
+
+
+* 5\. ***Console Tenure \-*** How long have you been using your main gaming console … ***SS per row, DNR***  
+  ***ROw***  
+  * 5.1. with any gaming console  
+  * 5.2. specifically with ***\[insert main console from Q4\]***
+
+  ***Scale***
+
+  * 5.3. Less than 1 year  
+  * 5.4. 1 to 2 years  
+  * 5.5. More than 2 years
+
+  ***Time period for 5.1 should be equal or more than 5.2***
+
+  ***If coded 5.3 (Less than 1 year) for the Main console (5.2), then qualify the main console for the Shop/Buy phase as well.***
+
+  ***If coded 5.4/5.5 (more than 1 year) for the Main console (5.2), then SKIP questions Q8/Q9. These respondents CAN only qualify for PLAY and ENGAGE moments and PHASES.***
+
+
+* 6\. ***Last time purchased game*** ***–*** When was the last time you purchased a game (digital or physical) for yourself? Would that be within … **?** ***SS***  
+  ***Rows***  
+  * 6.1. the past 3 months  
+  * 6.2. the past 12 months  
+  * 6.3. longer than 12 months ago  
+  * 6.4. I have never purchased a game  
+* 7\. ***HIDDEN \- RESPONDENT CLASSIFICATION***  
+  * 7.1. ***CASUAL GAMERS*** *(Purchased game longer than 12 months ago but owns console) \-* ***CODED*** ***6.3*** ***OR 6.4***  
+  * 7.2. ***CORE GAMERS*** ***\- To qualify for 7.2. CORE GAMERS: CODED 5.4/5.5 IN Q5.1 & CODED 6.1/6.2 in Q6***
+
+#### Moments \- Serve / Engage moments
+
+* 8\. ***Play & Engage moments \-*** Have you done the following activities with ***\[insert main console from Q4\]*** in the past 12 months?  
+  ***column \-*** ***~~RESPONSES FROM Q4**~~* ***. MS allowed per console***  
+  ***rows \- R***  
+  * 8.1. ***Play M1 – Game Acquisition –*** **Purchased or downloaded new games** for ***\[insert main console from Q4\]***  
+  * 8.2. ***Play M2 – Gameplay –*** **Played games online with friends or other players** using your ***\[insert main console from Q4\]***  
+  * 8.3. ***Engage M1 – Content Consumption –*** **Watched game trailers or gameplay videos** on the console’s interface or related apps.  
+  * 8.4. ***Engage M2 – Community–*** **Used voice chat features** on ***\[insert main console from Q4\]*** to communicate with other players.  
+  * 8.5. None of the above ***\[anchor, exclusive\]***
+
+#### Condensed shop/buy qualification
+
+***If coded 5.3 (Less than 1 year) for the Main console (5.2), then qualify the main console for the Shop/Buy phase (autocode 9.1 and skip Q9).***
+
+***Shop qualification and Experience Trigger–***
+
+* 9\. In the past 12 months, have you had any reasons or prompts that led you to start looking into other gaming consoles?  
+  * 9.1. Yes ***– Qualify for Shop/buy moments. Directly qualify for Shop-Moment-1***  
+  * 9.2. No
+
+  ***Terminate if not using a console account (3.1 to 3.3 is not selected) and has not shopped for any console (9.2 is selected)***
+
+* 10\. ***shop & buy qualification- ask if coded in q9.1 –*** For each console, please select how far along you got in the purchase process in the past 12 months.  
+  ***column, DNR***  
+  * 10.1. Did not research or consider  
+  * 10.2. Considered but did not decide to purchase  
+  * 10.3. Purchased but haven’t fully set it up
+
+  ***ROWS –***
+
+  \_\_\_***For Console users who coded 5.3 (Less than 1 year) for the Main console FROM q4, autocode 10.3 (Purchased but haven’t fully set it up) for the Main console FROM Q4. Hide ALL OTHER CONSOLES. ask Q11 and Q12 only for the main console.***
+
+
+  \_\_\_***For Console users who coded 5.4/5.5 (More than 1 year) for (Main console FROM Q4), ~~do not autocode. Hide the \[Main console FROM Q4\] from the below options~~ skip this question and jump to the main questionnaire.***
+
+
+  ***For those not using a console account (not selected 3.1 to 3.3) but has shopped for any console (9.1 is selected)***, show all the options below
+
+  ***Show the options alphabetically***
+
+  * 10.4. Nintendo Switch  
+  * 10.5. PlayStation 5  
+  * 10.6. Xbox Series X/S
+
+
+  ***Hidden table – qualification for shop & buy phases***
+
+
+| SHOP\_BUY CODE Qualified \= 1 Not qualified \= 0 | Nintendo Switch | PlayStation 5 | Xbox Series X/S |
+| :---- | :---- | :---- | :---- |
+| Shop Moment 2 Qualification (Coded 2/3 in Q10) |  |  |  |
+| Buy Qualification (Coded 3 in Q10) |  |  |  |
+
+
+  ***shop Phase \[ask those consoles that qualify for shop phase\] –***
+
+
+* 11\. Have you experienced any of the below activities while you were shopping for gaming console(s) in the past 12 months?  
+  ***column – consoles that qualify for the shop phase. MS allowed per console***  
+  ***rows***  
+  * 11.1. ***Hidden moment \- shop Moment 1 – experience trigger –*** You thought/discovered a new gaming console would enhance your entertainment or gaming experience ***Autocode this moment for all the consoles that will be selected for shop Moment 2 (narrow down)***  
+  * 11.2. ***shop M2 – narrow down –*** You researched and compared different gaming consoles (including this one) to shortlist what suits your requirements.  
+  * 11.3. None of the above ***anchor, exclusive***
+
+
+* 12\. ***buy Phase \[asked to those consoles that qualify for buy phase\] \-*** Have you experienced any of the below activities while you were setting up the gaming console after purchase in the past 12 months?  
+  ***column – consoles that qualify for buy phase. MS allowed per console***  
+  ***rows \- R***  
+  * 12.1. ***buy M1 – setup –*** Unboxed and physically set up the gaming console.  
+  * 12.2. ***buy M2 – link to account/subscription –*** Created a user account on the console’s online service.  
+  * 12.3. None of the above ***anchor, exclusive***
+
+List of qualified moments
+
+| Moment no | Phase | SHOP\_BUY CODE Qualified \= 1 Not qualified \= 0 | Nintendo Switch | PlayStation 5 | Xbox Series X/S |
+| :---- | :---- | :---- | :---- | :---- | :---- |
+| 1 | SHOP | SHOP M1 – EXPERIENCE TRIGGER Coded \- 11.1 |  |  |  |
+| 2 | SHOP | SHOP M2 – NARROW DOWN Coded \- 11.2 |  |  |  |
+| 3 | BUY | BUY M1 – SETUP Coded 12.1 |  |  |  |
+| 4 | BUY | BUY M2 – LINK TO ACCOUNT/SUBSCRIPTION Coded \- 12.2 |  |  |  |
+| 5 | PLAY | PLAY M1 – GAME ACQUISITION Coded \- 8.1 |  |  |  |
+| 6 | PLAY | PLAY M2 – GAMEPLAY Coded \- 8.2 |  |  |  |
+| 7 | ENGAGE | ENGAGE M1 – CONTENT CONSUMPTION Coded \- 8.3 |  |  |  |
+| 8 | ENGAGE | ENGAGE M2 – COMMUNITY Coded \- 8.4 |  |  |  |
+
+***Code the qualified moments in the below grid as “1”***  
+***If a respondent does not qualify for any moment, then Terminate***  
+***Selection of moments x Console \- The objective is to get at least a minimum of 30 completes for each Moment x Console combination***.
+
+* 1\. if two or more consoles qualify, select using console priority.  
+* 2\. if the priority of the consoles is the same, choose using least fill for moment x consoles.  
+* 3\. Select a maximum of 4 moments per respondent  
+* 4\. All the moments selected should be from the same console.  
+* 5\. Based on the moments selected, corresponding phases will also be selected. example – if moment 1, 4 and 6 are selected for the respondent, then the respondent should also go through shop phase, buy phase and Play phase as well.
+
+***Selected Moments are coded in the below table***
+
+| Moment no | Phase | SHOP\_BUY CODE Qualified \= 1 Not qualified \= 0 | Nintendo Switch | PlayStation 5 | Xbox Series X/S |
+| :---- | :---- | :---- | :---- | :---- | :---- |
+| 1 | SHOP | SHOP M1 – EXPERIENCE TRIGGER |  |  |  |
+| 2 | SHOP | SHOP M2 – NARROW DOWN |  |  |  |
+| 3 | BUY | BUY M1 – SETUP |  |  |  |
+| 4 | BUY | BUY M2 – LINK TO ACCOUNT/SUBSCRIPTION |  |  |  |
+| 5 | PLAY | PLAY M1 – GAME ACQUISITION |  |  |  |
+| 6 | PLAY | PLAY M2 – GAMEPLAY |  |  |  |
+| 7 | ENGAGE | ENGAGE M1 – CONTENT CONSUMPTION |  |  |  |
+| 8 | ENGAGE | ENGAGE M2 – COMMUNITY |  |  |  |
+
+***Selected phase(s)***
+
+| Phase Number | Phase |
+| :---- | :---- |
+| 1 | SHOP |
+| 2 | Buy |
+| 3 | Play |
+| 4 | Engage |
+
+***Selected Consoles / Selected Brand***
+
+| No | Console | Priority Level | Brand |
+| :---- | :---- | :---- | :---- |
+| 1 | Nintendo Switch | Priority 1 | Nintendo |
+| 2 | PlayStation 5 | Priority 2 | PlayStation |
+| 3 | Xbox Series X/S | Priority 2 | Xbox |
+
+***ADD VARIABLES FOR REST OF SURVEY***
+
+* ***Console Account holder \- if 3.1 to 3.3 is coded OR 10.3 is coded for the selected console***  
+* ***Console user –*** *if 3.1 to 3.3 is coded*  
+  * ***Console USER with the same console –*** *if the selected console was coded in Q3*  
+  * ***Console USER but not with the same console \-*** *if the selected console was NOT coded in Q3*  
+* ***Console non-user \-*** *3.1 to 3.3 is NOT coded* ***and***  
+* ***CONSOLE BELONGS TO A MAJOR BRAND –*** *IF THE SELECTED CONSOLE IS 1/2/3 IN THE ABOVE TABLE*
+
+| No | SELECTED CONSOLE | SELECTED CONSOLE’S |
+| :---- | :---- | :---- |
+| 1 | Nintendo Switch | Nintendo Switch’s |
+| 2 | PlayStation 5 | PlayStation 5’s |
+| 3 | Xbox Series X/S | Xbox Series X/S’s |
+
+#### Overall KPIs
+
+For the rest of the survey, we would like to talk about your experience with ***\[Selected Console\]***.
+
+* 13\. ***EE \-*** Thinking about your overall experience with ***\[Selected Console\]***, how much do you agree that ***\[Selected Console\]*** delivers an **exceptional experience**?  
+  * 13.1. ***10-POINT SCALE:*** 1 – Not at all / 10 – Strongly agree  
+* 14\. ***NPS \-*** Thinking about your overall experience with ***\[Selected Console\]***, how likely are you to recommend ***\[Selected Console\]*** to a friend, family member, or colleague?  
+  * 14.1. ***10-POINT SCALE:*** 1 – Not at all likely to recommend / 10 – Extremely likely to recommend
+
+#### Shop Phase KPIs
+
+***ask only if the shop phase is selected***
+
+***Show on intro page \-*** We’re now going to ask you about your **shopping experience** for ***\[Selected Console\]***.
+
+* 15\. ***kpis \-*** Thinking about your experience shopping/researching a gaming console, how much do you agree that ***\[Selected Console\]*** …  
+  ***RANDOMIZE***  
+  * 15.1. Delivers an **exceptional shopping experience**  
+  * 15.2. is **easy to research and compare**
+
+  ***Scale***
+
+  * 15.3. ***10-POINT SCALE:*** 1 – Not at all / 10 – Strongly agree
+
+#### Buy Phase KPIs
+
+***ask only if buy phase is selected***
+
+***Show on intro page \-*** We’re now going to ask you about the process of purchasing and setting up your console with ***\[Selected Console\]***.
+
+* 16\. ***kpis \-*** Thinking only about your experience purchasing and setting up your console, how much do you agree that ***\[Selected Console\]*** …  
+  ***RANDOMIZE***  
+  * 16.1. delivers an **exceptional setup experience**  
+  * 16.2. is **easy to set up**
+
+  ***Scale***
+
+  * 16.3. ***10-POINT SCALE:*** 1 – Not at all / 10 – Strongly agree
+
+#### PLAY Phase KPIs
+
+***ask only if play phase is selected in the screener***
+
+***Show on intro page \-*** We’re now going to ask about your day-to-day usage of your gaming console with ***\[Selected Console\]***.
+
+* 17\. ***Kpis \-*** Thinking about your experience using your gaming console, how much do you agree that ***\[Selected CONSOLE\]*** …  
+  ***rANDOMIZE***  
+  * 17.1. delivers an **exceptional gaming experience**  
+  * 17.2. is **easy to use for gaming**
+
+  ***Scale***
+
+  * 17.3. ***10-POINT SCALE:*** 1 – Not at all / 10 – Strongly agree
+
+#### engage Phase KPIs
+
+***ask only if engage phase is selected in the screener***
+
+***Show on intro page \-*** We’re now going to ask about your engagement with ***\[Selected Console\]*** beyond playing games.
+
+* 18\. ***KPIs \-*** Thinking about your experience engaging with your gaming console beyond just playing games, how much do you agree that ***\[Selected Console\]*** …  
+  ***RANDOMIZE***  
+  * 18.1. delivers an **exceptional engagement experience**  
+  * 18.2. is **easy to engage with beyond gaming**
+
+  ***Scale***
+
+  * 18.3. ***10-POINT SCALE:*** 1 – Not at all / 10 – Strongly agree
+
+---
