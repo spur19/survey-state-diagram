@@ -136,7 +136,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--model",
-        default="gpt-4o-mini",
+        default="gpt-5",
         help="OpenAI model name that supports structured output.",
     )
 

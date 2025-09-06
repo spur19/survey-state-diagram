@@ -22,7 +22,7 @@ export OPENAI_API_KEY=your_key_here
 Generate states from a survey design document and write both the raw JSON and a Mermaid diagram (`.mmd`) to a folder:
 
 ```
-python -m survey_states.cli --input path/to/survey_doc.txt --outdir outputs --model gpt-4o-mini
+python -m survey_states.cli --input path/to/survey_doc.txt --outdir outputs --model gpt-5
 ```
 
 Outputs in `--outdir`:
@@ -32,7 +32,7 @@ Outputs in `--outdir`:
 Flags:
 - `--input`: path to the survey design document (text/markdown/HTML/PDF pre-text)
 - `--outdir`: directory to write outputs (required)
-- `--model`: OpenAI model that supports structured output (default `gpt-4o-mini`)
+- `--model`: OpenAI model that supports structured output (default `gpt-5`)
 
 The tool uses LangChain structured outputs to return a list of survey states with fields:
 
